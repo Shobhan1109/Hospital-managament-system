@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect
 import sqlite3
-con = sqlite3.connect("hospitalmanagementsystem.db", check_same_thread= False)
+con = sqlite3.connect("hospitalmanagementsystems.db", check_same_thread= False)
 cursor = con.cursor()
 listOfTables = con.execute("SELECT name from sqlite_master WHERE type='table' AND name='PATIENT' ").fetchall()
 if listOfTables!=[]:
@@ -79,7 +79,7 @@ def search():
         except Exception as e:
             print(e)
 
-    return render_template("search.html", patient=[], Status=False)
+    return render_template("search.html", patient=[], status=False)
 
 
 @app.route("/delete", methods=["GET","POST"])
